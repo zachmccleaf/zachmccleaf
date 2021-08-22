@@ -1,12 +1,13 @@
 import * as React from "react"
-import "./../styles.scss"
+import MainLayout from "./../layouts/main-layout"
+import Hero from "./../components/hero"
 
 // markup
 const ProjectsPage = () => {
   return (
-    <main>
-      <h1>Projects Page</h1>
-    </main>
+    <MainLayout>
+      <Hero title="Projects" modifier="-purple" />
+    </MainLayout>
   )
 }
 

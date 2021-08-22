@@ -1,0 +1,23 @@
+.c-hero {
+    color: white;
+    padding: 0 0 100px 0;
+
+    &.-green {
+        background: #94ffb0;
+        // background: #0de3ff;
+    }
+
+    &.-red {
+        background: #ff5e4d;
+    }
+
+    &.-purple {
+        background: #e07dff;
+    }
+
+    h1 {
+        font-size:50px;
+        position: relative;
+        top: -17px;
+    }
+}

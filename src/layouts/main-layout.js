@@ -1,12 +1,19 @@
 import * as React from "react"
+import Header from "./../components/header"
+import Footer from "./../components/footer"
+import "./../styles/app.scss"
 
 // markup
 const MainLayout = (props) => {
   return (
-    <main>
-      <h1>main layout</h1>
-      {props.children}
-    </main>
+    <div className="c-main-layout">
+        <Header/>
+        <main>
+            {props.children}
+        </main>
+        <Footer/>
+    </div>
+   
   )
 }
 
