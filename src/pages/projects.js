@@ -16,9 +16,11 @@ export default function Projects({ data }) {
   return (
     <div>
       <MainLayout>
-      <Hero title="Projects" modifier="-purple" />
+        <Hero title="Projects" modifier="-purple" />
+        <div className="c-project-card__list">
+          {getProjetCards()}
+        </div>
       </MainLayout>
-      {getProjetCards()}
     </div>
   )
 }
