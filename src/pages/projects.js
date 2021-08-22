@@ -1,14 +1,52 @@
-import * as React from "react"
+import React from "react"
+import { graphql } from "gatsby"
 import MainLayout from "./../layouts/main-layout"
 import Hero from "./../components/hero"
+import ProjectCard from "./../components/project-card"
 
-// markup
-const ProjectsPage = () => {
+export default function Projects({ data }) {
+  const { posts } = data.projects
+
+  const getProjetCards = () => {
+    return posts.map(post => (
+      <ProjectCard data={post}/>
+    ))
+  }
+
   return (
-    <MainLayout>
+    <div>
+      <MainLayout>
       <Hero title="Projects" modifier="-purple" />
-    </MainLayout>
+      </MainLayout>
+      {getProjetCards()}
+    </div>
   )
 }
 
-export default ProjectsPage
+export const pageQuery = graphql`
+  query MyQuery {
+    projects: allMarkdownRemark {
+      posts: nodes {
+        frontmatter {
+          title
+        }
+        excerpt
+        id
+      }
+    }
+  }
+`
+
+
+
+
+// // markup
+// const ProjectsPage = () => {
+//   return (
+//     <MainLayout>
+//       <Hero title="Projects" modifier="-purple" />
+//     </MainLayout>
+//   )
+// }
+
+// export default ProjectsPage
