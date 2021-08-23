@@ -1,5 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import { FaGithub } from 'react-icons/fa';
+
 
 // markup
 const Header = () => {
@@ -12,7 +14,7 @@ const Header = () => {
             <nav>
                 <Link to="/about">About</Link>
                 <Link to="/projects">Projects</Link>
-                <Link to="">Github</Link>
+                <Link target="_blank" to="https://github.com/zachmccleaf"><FaGithub/></Link>
             </nav>
         </div>
     </header>

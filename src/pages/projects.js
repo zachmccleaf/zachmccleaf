@@ -6,6 +6,7 @@ import ProjectCard from "./../components/project-card"
 
 export default function Projects({ data }) {
   const { posts } = data.projects
+  console.log("data: ", data.projects.posts[3].frontmatter.featuredimage)
 
   const getProjetCards = () => {
     return posts.map(post => (
@@ -16,7 +17,7 @@ export default function Projects({ data }) {
   return (
     <div>
       <MainLayout>
-        <Hero title="Projects" modifier="-purple" />
+        <Hero title="projects" modifier="-purple" />
         <div className="c-project-card__list">
           {getProjetCards()}
         </div>
@@ -29,8 +30,21 @@ export const pageQuery = graphql`
   query MyQuery {
     projects: allMarkdownRemark {
       posts: nodes {
+        fields {
+          slug
+        }
         frontmatter {
           title
+          featuredimage {
+            src {
+              childImageSharp {
+                fluid(maxWidth: 1024) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            alt
+          }
         }
         excerpt
         id
@@ -38,17 +52,3 @@ export const pageQuery = graphql`
     }
   }
 `
-
-
-
-
-// // markup
-// const ProjectsPage = () => {
-//   return (
-//     <MainLayout>
-//       <Hero title="Projects" modifier="-purple" />
-//     </MainLayout>
-//   )
-// }
-
-// export default ProjectsPage
